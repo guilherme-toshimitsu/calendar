@@ -1,18 +1,17 @@
 import React from 'react';
-import theme from './theme';
 import ThemeProvider from '@components/ThemeProvider';
 import Auth from '@components/Auth';
 
 const renderWithTheme = (children) => {
-  return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
+	return render(<ThemeProvider>{children}</ThemeProvider>);
 };
 
 const renderWithThemeAndContext = (children) => {
-  return render(
-    <ThemeProvider theme={theme}>
-      <Auth>{children}</Auth>
-    </ThemeProvider>
-  );
+	return render(
+		<ThemeProvider>
+			<Auth>{children}</Auth>
+		</ThemeProvider>,
+	);
 };
 
-export { renderWithTheme, renderWithThemeAndContext };
+export {renderWithTheme, renderWithThemeAndContext};
