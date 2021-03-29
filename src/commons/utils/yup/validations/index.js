@@ -1,0 +1,1 @@
+export { whiteListValidEmail } from './email';
