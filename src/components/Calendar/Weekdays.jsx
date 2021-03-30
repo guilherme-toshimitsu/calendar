@@ -6,7 +6,6 @@ import {useCalendar} from './';
 
 const Weekdays = () => {
 	const [{weekdays}] = useCalendar();
-	console.log(weekdays);
 	return (
 		<tr>
 			{weekdays.map((weekday, idx) => (

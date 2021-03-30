@@ -1,26 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dialog } from '@material-ui/core';
-import { useModal } from '@components/Modal';
+import {Drawer, ClickAwayListener} from '@material-ui/core';
+import {useModal} from '@components/Modal';
 import modalParser from './modalParser.js';
 
-const Modal = () => {
-  const [{ selectedModal, props, open }, { closeModal }] = useModal();
+const ModalCustom = () => {
+	const [{selectedModal, props, open}, {closeModal}] = useModal();
 
-  const CustomComponent = modalParser[selectedModal] ? modalParser[selectedModal] : modalParser['default'];
-  return (
-    <Dialog disableBackdropClick open={open} onClose={() => closeModal()}>
-      <CustomComponent {...props} onClose={() => closeModal()} />
-    </Dialog>
-  );
+	const CustomComponent = modalParser[selectedModal]
+		? modalParser[selectedModal]
+		: modalParser['default'];
+
+	return (
+		<Drawer
+			variant={'persistent'}
+			anchor={'right'}
+			open={open}
+			ModalProps={{onBackdropClicklick: () => closeModal()}}
+			onClose={() => closeModal()}>
+			<CustomComponent {...props} onClose={() => closeModal()} />
+		</Drawer>
+	);
 };
 
-Modal.defaultProps = {
-  open: false,
+ModalCustom.defaultProps = {
+	open: false,
 };
 
-Modal.propTypes = {
-  open: PropTypes.bool,
+ModalCustom.propTypes = {
+	open: PropTypes.bool,
 };
 
-export default Modal;
+export default ModalCustom;

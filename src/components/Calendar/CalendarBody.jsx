@@ -6,7 +6,6 @@ import {useCalendar} from './';
 
 const CalendarBody = ({}) => {
 	const [{currentViewedMonth}] = useCalendar();
-	console.log('currentViewedMonth', currentViewedMonth);
 
 	return (
 		<tbody>
