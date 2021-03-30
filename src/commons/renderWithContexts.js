@@ -1,15 +1,24 @@
 import React from 'react';
-import ThemeProvider from '@components/ThemeProvider';
-import Auth from '@components/Auth';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import theme from '@commons/theme';
+import AuthWrapper from '@components/Auth';
+import {SnackWrapper} from '@components/SnackBar';
+import {ModalWrapper} from '@components/Modal';
 
 const renderWithTheme = (children) => {
-	return render(<ThemeProvider>{children}</ThemeProvider>);
+	return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
 };
 
 const renderWithThemeAndContext = (children) => {
 	return render(
-		<ThemeProvider>
-			<Auth>{children}</Auth>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<SnackWrapper>
+				<ModalWrapper>
+					<AuthWrapper>{children}</AuthWrapper>
+				</ModalWrapper>
+			</SnackWrapper>
 		</ThemeProvider>,
 	);
 };

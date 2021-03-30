@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal> Modal Component render full modal 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      data-testid="button-test-modal"
+    >
+      "aqui"
+    </button>
+  </div>
+</DocumentFragment>
+`;
